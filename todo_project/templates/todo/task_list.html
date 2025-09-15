@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>To-Do App</h1>
+        <h2>Stay organized and productive with your personal To-Do List!</h2>
+    </header>
+
+    <section class="task-section">
+        <a href="{% url 'add_task' %}">
+            <button class="add-task-btn" aria-label="Add a new task">Add Task</button>
+        </a>
+
+        <table class="task-table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Task</th>
+                    <th scope="col">Date of Reminder</th>
+                    <th scope="col">Time Description</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                    <tr>
+                        <td data-label="Name">{{ task.name }}</td>
+                        <td data-label="Task">{{ task.task|truncatechars:10 }}</td>
+                        <td data-label="Date of Reminder">{{ task.date_of_reminder }}</td>
+                        <td data-label="Time Description">{{ task.time_description }}</td>
+                        <td data-label="Actions">
+                            <a href="{% url 'edit_task' task.id %}">
+                                <button class="edit-btn" aria-label="Edit Task">Edit</button>
+                            </a>
+                            <a href="{% url 'delete_task' task.id %}">
+                                <button class="delete-btn" aria-label="Delete Task">Delete</button>
+                            </a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="5" class="no-task-msg">No tasks available.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

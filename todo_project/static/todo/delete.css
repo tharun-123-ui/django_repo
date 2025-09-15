@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle, #ff6b6b, #2c3e50);
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+#heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    animation: bounce 1s ease-in-out;
+}
+
+#task-info {
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+#delete-form {
+    margin-top: 20px;
+}
+
+#delete-button {
+    background-color: #e63946;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+#delete-button:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+#cancel-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+#cancel-link:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}

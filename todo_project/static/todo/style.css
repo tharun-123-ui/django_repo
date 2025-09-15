@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #ffdde1, #ee9ca7);
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+header {
+    margin-bottom: 20px;
+    animation: fadeInDown 0.8s ease-in-out;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+button {
+    background: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+.add-task-btn {
+    background: #28a745;
+    margin-bottom: 20px;
+}
+
+.add-task-btn:hover {
+    background: #218838;
+}
+
+.edit-btn {
+    background: #ffc107;
+}
+
+.edit-btn:hover {
+    background: #e0a800;
+}
+
+.delete-btn {
+    background: #dc3545;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+}
+
+.task-table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.task-table th, .task-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.task-table th {
+    background: #007bff;
+    color: white;
+    font-size: 1.1em;
+}
+
+.task-table td {
+    font-size: 1em;
+}
+
+.task-table tr:hover {
+    background: rgba(0, 123, 255, 0.1);
+    transition: background 0.3s ease-in-out;
+}
+
+.no-task-msg {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #777;
+    padding: 15px;
+}
+
+@media (max-width: 768px) {
+    .task-table {
+        width: 100%;
+        font-size: 0.9em;
+    }
+    
+    button {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .task-table thead {
+        display: none;
+    }
+
+    .task-table tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .task-table td {
+        display: block;
+        text-align: right;
+        padding: 10px;
+        position: relative;
+    }
+
+    .task-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+        position: absolute;
+        left: 10px;
+        color: #555;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

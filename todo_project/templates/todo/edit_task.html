@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Task</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/edit.css' %}">
+</head>
+
+
+<body>
+    <h1 id="heading">Edit Task</h1>
+    <form method="post" id="edit-form">
+        {% csrf_token %}
+        <div id="form-fields">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" id="update-button">Update Task</button> 
+        <a href="{% url 'task_list' %}" id="back-button">Back to list</a>
+    </form>
+</body>
+</html>
